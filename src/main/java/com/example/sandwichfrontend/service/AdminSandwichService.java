@@ -3,8 +3,7 @@ package com.example.sandwichfrontend.service;
 import com.example.sandwichfrontend.model.Sandwich;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -32,6 +31,15 @@ public class AdminSandwichService implements SandService {
 
     @Override
     public boolean addSandwich(Sandwich s) {
+
+        ResponseEntity <? extends Object> re =null;
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.add("content-type", MediaType.APPLICATION_JSON_VALUE);
+        HttpEntity<Sandwich> requestEntity = new HttpEntity<>(s,requestHeaders);
+        re =  rt.postForEntity(baseUri + "/sandwich/add",requestEntity,Object.class);
+        if (re.getStatusCode().is2xxSuccessful()){
+            return true;
+        }
         return false;
     }
 
