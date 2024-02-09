@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="addsandwich">
+<head>
+    <title>Delete sandwich by ID</title>
+</head>
+<body>
+
+<h1>Delete sandwich </h1>
+<form action="#" th:action="@{/deletesandwich}" th:object="${sandwich}" method="post">
+    <table>
+        <tr>
+            <td>enter unique item id:</td>
+            <td><input type="text" th:field="*{id}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td  style="text-align:right"><input type="submit" value="deletesandwich"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

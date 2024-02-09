@@ -44,8 +44,17 @@ public class AdminSandwichService implements SandService {
     }
 
     @Override
-    public boolean deleteSandwich(Sandwich s) {
-        return false;
+    public void deleteSandwich(Sandwich s) {
+
+        rt.delete(baseUri+"/sandwich/delete/"+ s.getId());
+    }
+
+    @Override
+    public void updateSandwichPrice(Sandwich s) {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.add("content-type", MediaType.APPLICATION_JSON_VALUE);
+        HttpEntity<Sandwich> requestEntity = new HttpEntity<>(s,requestHeaders);
+        rt.postForEntity(baseUri + "/sandwich/updateprice",requestEntity,Object.class);
     }
 
 

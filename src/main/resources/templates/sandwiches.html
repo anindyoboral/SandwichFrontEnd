@@ -10,24 +10,57 @@
 	}
 </style>
 <body>
-<td>"Sandwich name" </td>
+<!-- <td>"Sandwich name" </td>
 <table style="width:100%">
 <tr th:each="sandwich: ${sandwiches}">
-	<td th:text="${{sandwich.name}}">
+	<td th:text="${{sandwich.name}}"> </td>
 </tr>
-	<!--<td>"base price" </td>
+
+<td>"base price" </td>
 <tr th:each="sandwich: ${sandwiches}">
 	<td th:text="${{sandwich.basePrice}}">
-</tr>
+</tr>-->
+
+<table>
+	<thead>
+	<tr>
+		<th> Id </th>
+		<th> Sandwich name </th>
+		<th> Sandwich price </th>
+		<th> Sandwich description </th>
+		<th> Sandwich category </th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="sandwich : ${sandwiches}">
+		<td><span th:text="${sandwich.id}"> Id </span></td>
+		<td><span th:text="${sandwich.name}"> Sandwich name </span></td>
+		<td><span th:text="${sandwich.basePrice}"> Sandwich price </span></td>
+		<td><span th:text="${sandwich.description}"> Sandwich description </span></td>
+		<td><span th:text="${sandwich.category}"> Sandwich category </span></td>
+	</tr>
+	</tbody>
+</table>
+
+<!--
+<table>
+	<tr th:each="sandwich: ${sandwiches}">
+		<td th:text="${{sandwich.name}}"> </td>
+	</tr>
+	<tr th:each="sandwich: ${sandwiches}">
+		<td th:text="${{sandwich.basePrice}}"> </td>
+	</tr>
+</table>
+
 	<td>"category" </td>
 <tr th:each="sandwich: ${sandwiches}">
-	<td th:text="${{sandwich.category}}">
+<td th:text="${{sandwich.category}}">
 </tr>
-	<td>"description" </td>
+<td>"description" </td>
 <tr th:each="sandwich: ${sandwiches}">
-	<td th:text="${{sandwich.description}}">
+<td th:text="${{sandwich.description}}">
 </tr> -->
-</table>
+<!-- </table> -->
 </body>
 </html>
 

@@ -7,6 +7,8 @@ import java.util.List;
 public interface SandService {
 
     boolean addSandwich (Sandwich s);
-    boolean deleteSandwich (Sandwich s);
+    void deleteSandwich (Sandwich s);
+
+    void updateSandwichPrice (Sandwich s);
     List<Sandwich> listSandwich ();
 }

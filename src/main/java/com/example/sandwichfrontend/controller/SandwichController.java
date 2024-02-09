@@ -47,16 +47,30 @@ public class SandwichController {
         return "addsandwich";
     }
 
+
+    @GetMapping("/deletesandwich")
+    public String sandwichdeleteForm(Model model) {
+        model.addAttribute("sandwich", new Sandwich());
+        System.out.println("in delete sandwich");
+        return "deletesandwich";
+    }
+
     @PostMapping("/deletesandwich")
     public String deletesandwich(Model model, @ModelAttribute("sandwich") Sandwich sandwich){
-        System.out.println("sandwich name"+ sandwich.getName());
-        boolean deleteSandwichResult = adminService.deleteSandwich(sandwich);
-        model.addAttribute("deletesandwich", deleteSandwichResult);
+        adminService.deleteSandwich(sandwich);
+        return "redirect:/sandwiches";
+    }
 
-        if(deleteSandwichResult){
-            return "redirect:/sandwiches";
-        }
-        return "addsandwich";
+    @GetMapping("/updatesandwichprice")
+    public String updatepricesandwichForm(Model model) {
+        model.addAttribute("sandwich", new Sandwich());
+        return "updatesandwichprice";
+    }
+
+    @PostMapping("/updatesandwichprice")
+    public String updatePriceOfandwich(Model model, @ModelAttribute("sandwich") Sandwich sandwich){
+        adminService.updateSandwichPrice(sandwich);
+        return "redirect:/sandwiches";
     }
 
 }

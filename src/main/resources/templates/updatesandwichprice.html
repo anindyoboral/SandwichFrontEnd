@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="addsandwich">
+<head>
+    <title>Update sandwich price by ID</title>
+</head>
+<body>
+
+<h1>Update sandwich </h1>
+<form action="#" th:action="@{/updatesandwichprice}" th:object="${sandwich}" method="post">
+    <table>
+        <tr>
+            <td>enter sandwich item id to update:</td>
+            <td><input type="text" th:field="*{id}"/></td>
+        </tr>
+        <tr>
+            <td>enter new price of sandwich:</td>
+            <td><input type="text" th:field="*{basePrice}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td  style="text-align:right"><input type="submit" value="updatesandwichprice"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
