@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>List of Sandwiches</title>
+</head>
+
+<style>
+	table, th, td {
+		border:1px solid black;
+	}
+</style>
+<body>
+<td>"Sandwich name" </td>
+<table style="width:100%">
+<tr th:each="sandwich: ${sandwiches}">
+	<td th:text="${{sandwich.name}}">
+</tr>
+	<!--<td>"base price" </td>
+<tr th:each="sandwich: ${sandwiches}">
+	<td th:text="${{sandwich.basePrice}}">
+</tr>
+	<td>"category" </td>
+<tr th:each="sandwich: ${sandwiches}">
+	<td th:text="${{sandwich.category}}">
+</tr>
+	<td>"description" </td>
+<tr th:each="sandwich: ${sandwiches}">
+	<td th:text="${{sandwich.description}}">
+</tr> -->
+</table>
+</body>
+</html>
+
